@@ -10,6 +10,8 @@
 #
 #$X("//*[@id='readme']/div[3]/article/table[1]")
 #
+#
+#This script makes use of strsplit - https://stat.ethz.ch/R-manual/R-devel/library/base/html/strsplit.html
 library(htmltab)
 #Latency
 url="https://github.com/the-benchmarker/web-frameworks/"
@@ -18,4 +20,17 @@ print(latency)
 #Requests/Second
 reqs_per_sec=htmltab(doc = url, which = "//*[@id='readme']/div[3]/article/table[2]")
 print(reqs_per_sec)
+#Begin to put the data into the shape I want it
+for (i in 1:nrow(latency)){
+  row <- latency[i,]
+  #lstlangver <- strsplit(as.character(row[1]), "(", fixed=TRUE)
+  #lstlangver <- strsplit(as.character(row[1]), "(", fixed=TRUE)
+  lstlangver <- unlist(strsplit(row[[1]], "(", fixed=TRUE))
+  lang <- trimws(lstlangver[1])
+  ver <- trimws(lstlangver[2])
+  ver <- gsub(")", "", ver)
+  print(lang)
+  print(ver)
+  print("")
+}
 
