@@ -5,7 +5,7 @@ There's some really interesting web server benchmark data in the ['web-framework
 ## Notes
 
 ### strsplit
-The strsplit does return a list. But, the list is only a single element list.
+`strsplit` returns a list, but, the list is only a single element list.
 
 To access, say, the second string of a single element list do this :
 
