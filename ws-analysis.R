@@ -11,7 +11,11 @@
 #$X("//*[@id='readme']/div[3]/article/table[1]")
 #
 library(htmltab)
+#Latency
 url="https://github.com/the-benchmarker/web-frameworks/"
-times=htmltab(doc = url, which = "//*[@id='readme']/div[3]/article/table[1]")
-print(times)
+latency=htmltab(doc = url, which = "//*[@id='readme']/div[3]/article/table[1]")
+print(latency)
+#Requests/Second
+reqs_per_sec=htmltab(doc = url, which = "//*[@id='readme']/div[3]/article/table[2]")
+print(reqs_per_sec)
 
